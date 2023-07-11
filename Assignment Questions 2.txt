@@ -1,0 +1,132 @@
+Q1. Conditional Operators in Java:
+
+In Java, the conditional operators are used to perform logical operations and make decisions based on conditions. The conditional operators are:
+
+Conditional AND (&&): This operator returns true if both operands are true; otherwise, it returns false.
+
+Conditional OR (||): This operator returns true if at least one of the operands is true; otherwise, it returns false.
+
+Conditional NOT (!): This operator is a unary operator and negates the value of its operand. If the operand is true, it returns false, and if the operand is false, it returns true.
+
+Q2. Types of Operators based on the number of operands:
+
+In Java, operators can be classified based on the number of operands they operate on:
+
+Unary Operators: These operators work on a single operand. Examples include the increment (++), decrement (--), and logical NOT (!) operators.
+
+Binary Operators: These operators work on two operands. Examples include arithmetic operators (+, -, *, /), relational operators (>, <, ==, !=), and logical operators (&&, ||).
+
+Ternary Operator: The ternary operator (?:) is the only operator in Java that takes three operands. It acts as a shorthand for an if-else statement and returns one of two values based on a condition.
+
+Q3. Use of Switch case in Java programming:
+
+The switch case statement in Java is used for decision-making based on multiple possible values of a single expression. It provides an alternative to multiple if-else statements. The switch case statement has the following use:
+
+It simplifies the code structure and improves readability by reducing the number of nested if-else statements.
+It allows efficient branching to different sections of code based on different values of a variable.
+It provides a clear and concise way to handle multiple options and their corresponding actions.
+Q4. Conditional Statements and their use in Java:
+
+Conditional statements in Java are used to execute different blocks of code based on specified conditions. They allow the program to make decisions and alter the flow of execution. The two main conditional statements in Java are:
+
+if Statement: The if statement evaluates a condition and executes a block of code if the condition is true.
+
+if-else Statement: The if-else statement evaluates a condition and executes one block of code if the condition is true, and a different block of code if the condition is false.
+
+Conditional statements provide the ability to perform different actions based on certain conditions, allowing for dynamic and flexible program behavior.
+
+Q5. Syntax of if-else statement:
+
+The syntax of the if-else statement in Java is as follows:
+
+java
+
+if (condition) {
+    // Code to be executed if the condition is true
+} else {
+    // Code to be executed if the condition is false
+}
+The condition is a boolean expression that determines whether the code inside the if block or the else block should be executed. If the condition evaluates to true, the code inside the if block is executed. If the condition evaluates to false, the code inside the else block is executed.
+
+Q6. Comparing two strings in Java:
+
+To compare two strings in Java, you can use the equals() method or the compareTo() method. Here's an example:
+
+java
+
+String str1 = "Hello";
+String str2 = "World";
+
+// Using equals() method
+if (str1.equals(str2)) {
+    System.out.println("Strings are equal");
+} else {
+    System.out.println("Strings are not equal");
+}
+
+// Using compareTo() method
+int comparison = str1.compareTo(str2);
+if (comparison == 0) {
+    System.out.println("Strings are equal");
+} else if (comparison < 0) {
+    System.out.println("str1 is less than str2");
+} else {
+    System.out.println("str1 is greater than str2");
+}
+The equals() method compares the content of the strings, while the compareTo() method compares the lexicographical order of the strings.
+
+Q7. Mutable String in Java:
+
+In Java, strings are immutable, which means their values cannot be changed once they are created. However, the StringBuilder and StringBuffer classes provide mutable string-like objects. These classes allow modifying the content of the string without creating a new string object each time. Here's an example:
+
+java
+
+StringBuilder mutableString = new StringBuilder("Hello");
+mutableString.append(" World");
+System.out.println(mutableString.toString()); // Output: Hello World
+
+In this example, the StringBuilder object mutableString initially contains "Hello". The append() method is used to add the string " World" to the existing content of the StringBuilder, resulting in "Hello World". The toString() method converts the StringBuilder object to a regular immutable String.
+
+Q8. Sorting a String alphabetically:
+
+Here's a program to sort a string alphabetically in Java:
+
+java
+
+import java.util.Arrays;
+
+public class StringSort {
+    public static void main(String[] args) {
+        String str = "openai";
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        String sortedStr = new String(chars);
+        System.out.println(sortedStr);
+    }
+}
+The toCharArray() method is used to convert the string into a character array. The Arrays.sort() method is then used to sort the character array in ascending order. Finally, a new string is created from the sorted character array using the String constructor, and the sorted string is printed.
+
+Q9. Checking if the letter 'e' is present in the word 'Umbrella':
+
+Here's a program to check if the letter 'e' is present in the word 'Umbrella' in Java:
+
+java
+
+public class CheckLetter {
+    public static void main(String[] args) {
+        String word = "Umbrella";
+        boolean isPresent = word.contains("e");
+        if (isPresent) {
+            System.out.println("Letter 'e' is present in the word");
+        } else {
+            System.out.println("Letter 'e' is not present in the word");
+        }
+    }
+}
+The contains() method is used to check if a specific substring or character is present within a string. In this case, it checks if the letter 'e' is present in the string 'Umbrella' and assigns the result to the boolean variable isPresent.
+
+Q10. Location of the String Constant Pool in memory:
+
+In Java, the String Constant Pool is a part of the method area (also known as the permanent generation or metaspace in newer JVM versions). The String Constant Pool is a special area where Java stores literal string values. When a string literal is encountered in the code, Java checks if it already exists in the String Constant Pool. If it does, the reference to that string is returned. If it doesn't, a new string is created in the pool and the reference is returned.
+
+The String Constant Pool is located in the non-heap memory of the JVM. It is a shared pool used by all instances of a particular JVM. The main advantage of the String Constant Pool is to conserve memory by reusing string literals instead of creating new instances of the same string.

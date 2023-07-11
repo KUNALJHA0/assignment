@@ -1,0 +1,213 @@
+Assignment Questions 3
+
+Q1. Here's an example of a simple banking system program using object-oriented programming (OOP) concepts in Java:
+
+java
+
+class BankAccount {
+    private String accountHolderName;
+    private double balance;
+
+    public BankAccount(String accountHolderName, double balance) {
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit successful. New balance: " + balance);
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal successful. New balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+}
+
+public class BankingSystem {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("John Doe", 1000.0);
+        System.out.println("Account holder name: " + account.getAccountHolderName());
+        System.out.println("Initial balance: " + account.getBalance());
+
+        account.deposit(500.0);
+        account.withdraw(200.0);
+    }
+}
+Q2. Here's an example that demonstrates method overriding, where a child class overrides a method from its parent class:
+
+java
+
+class Parent {
+    public void printMessage() {
+        System.out.println("This is the parent class");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    public void printMessage() {
+        System.out.println("This is the child class");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        Child child = new Child();
+
+        parent.printMessage();
+        child.printMessage();
+    }
+}
+Q3. Here's an example that demonstrates runtime polymorphism in Java:
+
+java
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat is meowing");
+    }
+}
+
+public class RuntimePolymorphismExample {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+
+        animal.makeSound();
+        dog.makeSound();
+        cat.makeSound();
+    }
+}
+Q4. Here's an example that demonstrates compile-time polymorphism (method overloading) in Java:
+
+java
+
+class MathUtils {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+public class CompileTimePolymorphismExample {
+    public static void main(String[] args) {
+        MathUtils math = new MathUtils();
+
+        int sum1 = math.add(2, 3);
+        int sum2 = math.add(2, 3, 4);
+
+        System.out.println("Sum 1: " + sum1);
+        System.out.println("Sum 2: " + sum2);
+    }
+}
+Q5. Achieving loose coupling in Java is often done using OOP concepts such as interfaces and dependency injection. Here's an example:
+
+java
+
+interface PaymentGateway {
+    void processPayment(double amount);
+}
+
+class PayPal implements PaymentGateway {
+    @Override
+    public void processPayment(double amount) {
+        System.out.println("Processing payment through PayPal: " + amount);
+    }
+}
+
+class CreditCard implements PaymentGateway {
+    @Override
+    public void processPayment(double amount) {
+        System.out.println("Processing payment through Credit Card: " + amount);
+    }
+}
+
+class ShoppingCart {
+    private PaymentGateway paymentGateway;
+
+    public ShoppingCart(PaymentGateway paymentGateway) {
+        this.paymentGateway = paymentGateway;
+    }
+
+    public void checkout(double amount) {
+        paymentGateway.processPayment(amount);
+    }
+}
+
+public class LooseCouplingExample {
+    public static void main(String[] args) {
+        PaymentGateway paypalGateway = new PayPal();
+        PaymentGateway creditCardGateway = new CreditCard();
+
+        ShoppingCart cart = new ShoppingCart(paypalGateway);
+        cart.checkout(100.0);
+
+        cart = new ShoppingCart(creditCardGateway);
+        cart.checkout(200.0);
+    }
+}
+Q6. Encapsulation in Java provides the benefit of data hiding and abstraction. It allows you to bundle data and methods together, and control access to the data through methods. Encapsulation helps in maintaining the integrity of the data by preventing direct access to it from outside the class. This ensures that the internal representation of an object is hidden, and access to the data is only possible through well-defined methods, thereby providing better control and security. Encapsulation also helps in achieving code modularity and reusability.
+
+Q7. No, Java is not considered a 100% pure object-oriented programming language because it supports primitive data types (e.g., int, double) that are not objects. Additionally, Java has static methods and variables, which do not belong to any instance of a class. However, Java is predominantly an object-oriented programming language as it supports classes, objects, inheritance, polymorphism, and other OOP concepts.
+
+Q8. The advantages of abstraction in Java are:
+
+Simplifies complexity: Abstraction allows you to focus on essential features while hiding unnecessary implementation details. It simplifies the complexity of a system by providing a high-level view.
+Enhances maintainability: By hiding internal implementation details, abstraction provides a clear separation between the interface and implementation. This makes it easier to modify or extend the implementation without affecting the code that depends on the abstraction.
+Promotes code reusability: Abstraction enables the creation of reusable components or classes. Once a high-level abstraction is defined, it can be used in various contexts, reducing code duplication and improving efficiency.
+Facilitates collaboration: Abstraction enables multiple developers to work on different parts of a system independently, as long as they adhere to the defined abstraction and its contract.
+Improves adaptability: Abstraction allows you to define interfaces or abstract classes that provide a common contract for different implementations. This makes it easier to switch between implementations or add new ones without affecting the code that uses the abstraction.
+
+Q9. Abstraction in Java refers to the process of hiding internal implementation details and exposing only the essential features or behavior of an object. It allows you to create abstract classes or interfaces that define a contract, specifying the methods that must be implemented by the subclasses. By using abstraction, you can focus on the "what" instead of the "how" of an object, making the code more modular, reusable, and maintainable.
+
+Here's an example of abstraction in Java:
+
+java
+
+abstract class Shape {
+    public abstract void draw();
+}
+
+class Circle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Rectangle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");

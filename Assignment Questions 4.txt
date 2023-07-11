@@ -1,0 +1,185 @@
+Assignment Questions 4
+
+Q1.1. Example of Interface in Java:
+
+Here's an example of how to define and use an interface in Java:
+
+java
+
+// Define the interface
+interface Shape {
+    void draw(); // Abstract method declaration
+}
+
+// Implement the interface
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+// Implement another interface
+class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+// Main program
+public class InterfaceExample {
+    public static void main(String[] args) {
+        Shape circle = new Circle();
+        circle.draw(); // Output: Drawing a circle
+        
+        Shape rectangle = new Rectangle();
+        rectangle.draw(); // Output: Drawing a rectangle
+    }
+}
+In this example, the Shape interface defines the draw() method as an abstract method. The Circle and Rectangle classes implement the Shape interface and provide their own implementation of the draw() method. In the main method, objects of the Circle and Rectangle classes are created and their draw() methods are called.
+
+Q2. Example of a Program with Concrete and Abstract Methods:
+
+Here's an example of a program with concrete and abstract methods in Java:
+
+java
+
+abstract class Animal {
+    // Concrete method
+    public void eat() {
+        System.out.println("Animal is eating");
+    }
+    
+    // Concrete method
+    public void sleep() {
+        System.out.println("Animal is sleeping");
+    }
+    
+    // Abstract method
+    public abstract void sound();
+    
+    // Abstract method
+    public abstract void move();
+}
+
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+    
+    @Override
+    public void move() {
+        System.out.println("Dog is running");
+    }
+}
+
+public class ProgramExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();   // Output: Animal is eating
+        dog.sleep(); // Output: Animal is sleeping
+        dog.sound(); // Output: Dog barks
+        dog.move();  // Output: Dog is running
+    }
+}
+In this example, the Animal class is an abstract class that contains both concrete and abstract methods. The Dog class extends the Animal class and provides the implementation for the abstract methods sound() and move(). The main method creates an object of the Dog class and invokes various methods.
+
+Q3. Example of Functional Interface in Java:
+
+A functional interface is an interface that contains only one abstract method. Here's an example of how to use a functional interface in Java:
+
+java
+
+@FunctionalInterface
+interface MyFunctionalInterface {
+    void performAction(String message);
+}
+
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        MyFunctionalInterface myFunction = (message) -> {
+            System.out.println("Performing action: " + message);
+        };
+
+        myFunction.performAction("Hello World"); // Output: Performing action: Hello World
+    }
+}
+In this example, the MyFunctionalInterface is a functional interface with a single abstract method performAction(). We use a lambda expression (message) -> { ... } to provide the implementation for the abstract method. In the main method, we create an object of the functional interface and invoke the performAction() method.
+
+Q4. Interface in Java:
+
+An interface in Java is a reference type that defines a contract of behaviors that a class implementing the interface must adhere to. It provides a way to achieve abstraction and multiple inheritance in Java.
+
+An interface can contain method declarations, but not method implementations. By default, all methods in an interface are public and abstract. In addition to methods, interfaces can also declare constants (static final variables) and can be extended by other interfaces.
+
+Interfaces serve as a blueprint for classes to follow, specifying the methods they should implement. A class can implement multiple interfaces, enabling it to inherit and provide implementation for multiple sets of behaviors.
+
+Q5. Use of Interface in Java:
+
+Interfaces are used in Java for the following purposes:
+
+To achieve abstraction: Interfaces provide a way to define common behaviors without specifying the implementation details. By programming to the interface, rather than the concrete implementation, code becomes more flexible and adaptable.
+
+To achieve multiple inheritance: Since a class can implement multiple interfaces, Java uses interfaces to achieve multiple inheritance of behaviors. A class can inherit and provide implementation for methods from multiple interfaces.
+
+To define contracts: Interfaces define a contract or agreement that a class implementing the interface must adhere to. This contract ensures consistency and compatibility among different classes.
+
+To enable loose coupling: By programming to interfaces, rather than concrete classes, the code becomes less dependent on specific implementations. This promotes loose coupling, allowing easier modification and maintenance of the code.
+
+Q6. Lambda Expression in Java 8:
+
+Lambda expressions are a feature introduced in Java 8 that allows the representation of a concise anonymous function. They provide a way to write more readable and functional-style code by reducing boilerplate code.
+
+A lambda expression consists of three parts: a list of parameters, an arrow token (->), and a body. The parameters represent the input to the function, the arrow token separates the parameters from the body, and the body contains the logic or expression to be executed.
+
+Here's a simple example of a lambda expression in Java:
+
+java
+
+interface MyInterface {
+    void myMethod();
+}
+
+public class LambdaExample {
+    public static void main(String[] args) {
+        MyInterface myLambda = () -> {
+            System.out.println("Lambda expression example");
+        };
+
+        myLambda.myMethod(); // Output: Lambda expression example
+    }
+}
+In this example, the lambda expression () -> { ... } represents a function with no parameters. The body of the lambda expression contains the code to be executed when the function is called.
+
+Q7. Passing Lambda Expressions to a Method:
+
+Yes, you can pass lambda expressions as arguments to methods in Java. This is possible because lambda expressions are treated as functional interfaces, which have a single abstract method.
+
+Here's an example:
+
+java
+
+interface MyInterface {
+    void performAction();
+}
+
+public class LambdaMethodExample {
+    public static void myMethod(MyInterface myLambda) {
+        myLambda.performAction();
+    }
+
+    public static void main(String[] args) {
+        myMethod(() -> {
+            System.out.println("Executing lambda expression");
+        });
+    }
+}
+In this example, the myMethod() method takes an instance of the functional interface MyInterface as a parameter. We can pass a lambda expression () -> { ... } as an argument to the myMethod() method, and the lambda expression's body will be executed when performAction() is called inside the method.
+
+Q8. Functional Interface in Java 8:
+
+A functional interface is an interface that contains only one abstract method. It serves as the basis for lambda expressions and method references in Java 8 and enables functional programming concepts.
+
+The java.util.function package in Java 8 provides several predefined functional interfaces, such as Consumer, Supplier, Predicate, and Function, among others. These interfaces are commonly used for various functional programming operations like iterating over a collection, filtering elements, mapping
